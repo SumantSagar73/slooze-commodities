@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle.jsx';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import useAuth from '../hooks/useAuth.js';
 
 const Navbar = () => {
   const navigate = useNavigate();

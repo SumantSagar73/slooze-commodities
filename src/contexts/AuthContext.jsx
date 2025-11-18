@@ -1,26 +1,37 @@
-import { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, useCallback, useState } from 'react';
 import { users } from '../data/users.js';
 
-const AuthContext = createContext(undefined);
+// eslint-disable-next-line react-refresh/only-export-components
+export const AuthContext = createContext(undefined);
 const STORAGE_KEY = 'slooze-auth-user';
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+const readStoredUser = () => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
-  useEffect(() => {
-    try {
-      const storedUser = localStorage.getItem(STORAGE_KEY);
-      if (storedUser) {
-        const parsedUser = JSON.parse(storedUser);
-        if (parsedUser && parsedUser.email && parsedUser.role) {
-          setUser(parsedUser);
-        }
-      }
-    } catch (error) {
-      console.error('Failed to restore auth user from storage', error);
-      localStorage.removeItem(STORAGE_KEY);
+  try {
+    const storedUser = window.localStorage.getItem(STORAGE_KEY);
+    if (!storedUser) {
+      return null;
     }
-  }, []);
+
+    const parsedUser = JSON.parse(storedUser);
+    if (parsedUser && parsedUser.email && parsedUser.role) {
+      return parsedUser;
+    }
+
+    window.localStorage.removeItem(STORAGE_KEY);
+  } catch (error) {
+    console.error('Failed to restore auth user from storage', error);
+    window.localStorage.removeItem(STORAGE_KEY);
+  }
+
+  return null;
+};
+
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(() => readStoredUser());
 
   const login = useCallback((email, password) => {
     const normalizedEmail = email.trim().toLowerCase();
@@ -34,13 +45,17 @@ export const AuthProvider = ({ children }) => {
 
     const userData = { email: matchedUser.email, role: matchedUser.role };
     setUser(userData);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+    if (typeof window !== 'undefined') {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(userData));
+    }
     return userData;
   }, []);
 
   const logout = useCallback(() => {
     setUser(null);
-    localStorage.removeItem(STORAGE_KEY);
+    if (typeof window !== 'undefined') {
+      window.localStorage.removeItem(STORAGE_KEY);
+    }
   }, []);
 
   return (
@@ -50,12 +65,3 @@ export const AuthProvider = ({ children }) => {
   );
 };
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-
-  if (context === undefined) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-
-  return context;
-};

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import useAuth from '../hooks/useAuth.js';
 
 const Login = () => {
   const navigate = useNavigate();

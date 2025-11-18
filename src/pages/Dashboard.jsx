@@ -9,7 +9,7 @@ import {
   YAxis,
 } from 'recharts';
 import StatsCard from '../components/StatsCard.jsx';
-import { useAuth } from '../contexts/AuthContext.jsx';
+import useAuth from '../hooks/useAuth.js';
 import { products } from '../data/products.js';
 
 const currencyFormatter = new Intl.NumberFormat('en-IN', {
