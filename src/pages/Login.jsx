@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HiOutlineEye, HiOutlineEyeOff, HiOutlineExclamationTriangle } from 'react-icons/hi';
+import { HiOutlineEyeOff } from "react-icons/hi";
+
+import { HiOutlineEye, HiOutlineExclamationTriangle } from 'react-icons/hi2';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import useAuth from '../hooks/useAuth.js';
