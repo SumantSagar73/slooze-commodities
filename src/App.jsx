@@ -1,8 +1,9 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 import Products from './pages/Products.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 const App = () => {
   return (
@@ -25,7 +26,7 @@ const App = () => {
             </ProtectedRoute>
           )}
         />
-        <Route path="*" element={<Navigate to="/login" replace />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

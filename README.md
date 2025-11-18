@@ -1,16 +1,65 @@
-# React + Vite
+# Slooze Commodities Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Slooze Commodities Management System is a modern React application for monitoring commodity inventory, visualising performance metrics, and managing store operations with role-aware controls. The experience mirrors contemporary SaaS dashboards with refined light/dark themes, data-rich tables, and polished micro-interactions.
 
-Currently, two official plugins are available:
+## Features
+- **Authentication** with persistent sessions and friendly validation
+- **Role-based Access** that adapts navigation, actions, and redirects for managers vs. storekeepers
+- **Dashboard with Charts** showcasing revenue, engagement, and operational KPIs via Recharts
+- **Light/Dark Mode** toggle persisted across visits
+- **Products Page** featuring tabbed inventory views, actionable tables, skeleton loading states, and insight cards
+- **Role-based UI restrictions** including gated buttons, safe fallbacks, and contextual messaging
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- React 19
+- Vite
+- TailwindCSS
+- Recharts
+- React Router DOM
 
-## React Compiler
+## Login Credentials
+- Manager — `manager@slooze.com` / `password123`
+- Storekeeper — `keeper@slooze.com` / `password123`
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting Started
+```bash
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+## Project Structure
+```text
+slooze-commodities/
+├─ public/
+├─ src/
+│  ├─ components/
+│  │  ├─ Layout.jsx
+│  │  ├─ Navbar.jsx
+│  │  ├─ ProtectedRoute.jsx
+│  │  ├─ Sidebar.jsx
+│  │  └─ ThemeToggle.jsx
+│  ├─ contexts/
+│  │  ├─ AuthContext.jsx
+│  │  ├─ ThemeContext.jsx
+│  │  └─ ToastContext.jsx
+│  ├─ data/
+│  │  ├─ dashboard.js
+│  │  └─ products.js
+│  ├─ hooks/
+│  │  ├─ useAuth.js
+│  │  ├─ useTheme.js
+│  │  └─ useToast.js
+│  ├─ pages/
+│  │  ├─ Dashboard.jsx
+│  │  ├─ Login.jsx
+│  │  ├─ NotFound.jsx
+│  │  └─ Products.jsx
+│  ├─ App.jsx
+│  └─ main.jsx
+├─ package.json
+└─ README.md
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Deployment
+- Vercel: _link to be added after deployment_

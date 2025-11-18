@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { HiOutlineEye, HiOutlineEyeOff } from 'react-icons/hi';
+import { HiOutlineEye, HiOutlineEyeOff, HiOutlineExclamationTriangle } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebook } from 'react-icons/fa';
 import useAuth from '../hooks/useAuth.js';
 import useTheme from '../hooks/useTheme.js';
+import useToast from '../hooks/useToast.js';
 
 const Login = () => {
   const navigate = useNavigate();
   const { user, login } = useAuth();
   const { theme } = useTheme();
+  const { addToast } = useToast();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -40,10 +42,20 @@ const Login = () => {
 
     try {
       const authenticatedUser = login(email, password);
+      addToast({
+        type: 'success',
+        title: 'Welcome back',
+        description: `Logged in as ${authenticatedUser.role}.`,
+      });
       const destination = authenticatedUser.role === 'manager' ? '/dashboard' : '/products';
       navigate(destination, { replace: true });
-    } catch (authError) {
+    } catch {
       setError('Invalid email or password.');
+      addToast({
+        type: 'error',
+        title: 'Login failed',
+        description: 'Please double-check your email and password.',
+      });
     }
   };
 
@@ -135,7 +147,13 @@ const Login = () => {
               </label>
 
               {error ? (
-                <p className="text-sm font-medium text-rose-600 dark:text-rose-400">{error}</p>
+                <div
+                  className="flex items-start gap-3 rounded-2xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm text-rose-600 dark:border-rose-500/40 dark:bg-rose-500/10 dark:text-rose-300"
+                  role="alert"
+                >
+                  <HiOutlineExclamationTriangle className="mt-0.5 h-5 w-5" />
+                  <p>{error}</p>
+                </div>
               ) : null}
 
               <button
