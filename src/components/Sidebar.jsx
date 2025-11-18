@@ -22,7 +22,7 @@ const Sidebar = () => {
   }
 
   return (
-    <aside className="flex h-full w-64 flex-col border-r border-slate-200 bg-white px-4 py-6 dark:border-slate-800 dark:bg-slate-900">
+    <aside className="flex h-full w-64 flex-col border-r border-gray-200 bg-white px-4 py-6 transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900">
       <nav className="space-y-2">
         {menuItems
           .filter((item) => item.roles.includes(user.role))
@@ -33,8 +33,8 @@ const Sidebar = () => {
               className={({ isActive }) =>
                 `block rounded-lg px-4 py-2 text-sm font-medium transition ${
                   isActive
-                    ? 'bg-slate-900 text-white dark:bg-slate-200 dark:text-slate-900'
-                    : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+                    ? 'bg-gray-900 text-white dark:bg-gray-100 dark:text-gray-900'
+                    : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-100'
                 }`
               }
             >

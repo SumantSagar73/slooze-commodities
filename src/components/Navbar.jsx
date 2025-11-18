@@ -12,12 +12,12 @@ const Navbar = () => {
   };
 
   return (
-    <header className="flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 dark:border-slate-800 dark:bg-slate-900">
+    <header className="flex items-center justify-between border-b border-gray-200 bg-white px-6 py-4 transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900">
       <div>
-        <h1 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+        <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
           Slooze Commodities
         </h1>
-        <p className="text-xs text-slate-500 dark:text-slate-400">
+        <p className="text-xs text-gray-500 dark:text-gray-400">
           {user?.role === 'manager' ? 'Manager access' : 'Store Keeper access'}
         </p>
       </div>
@@ -26,7 +26,7 @@ const Navbar = () => {
         <button
           type="button"
           onClick={handleLogout}
-          className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:border-slate-600 dark:hover:bg-slate-800"
+          className="rounded-lg border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 transition-colors duration-200 hover:border-gray-400 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-100 dark:hover:border-gray-600 dark:hover:bg-gray-800"
         >
           Logout
         </button>

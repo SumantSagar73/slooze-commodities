@@ -42,10 +42,10 @@ const Dashboard = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
           Manager Dashboard
         </h2>
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
           Signed in as {user?.email}
         </p>
       </div>
@@ -65,13 +65,13 @@ const Dashboard = () => {
         />
       </section>
 
-      <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <section className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
               Stock Levels by Product
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-gray-500 dark:text-gray-400">
               Monitor available inventory across key commodities.
             </p>
           </div>
@@ -80,8 +80,8 @@ const Dashboard = () => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={stats.chartData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="name" tick={{ fill: '#64748b' }} tickLine={false} axisLine={false} />
-              <YAxis tick={{ fill: '#64748b' }} tickLine={false} axisLine={false} />
+              <XAxis dataKey="name" tick={{ fill: '#6b7280' }} tickLine={false} axisLine={false} />
+              <YAxis tick={{ fill: '#6b7280' }} tickLine={false} axisLine={false} />
               <Tooltip
                 cursor={{ fill: 'rgba(148, 163, 184, 0.2)' }}
                 contentStyle={{

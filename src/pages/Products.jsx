@@ -49,10 +49,10 @@ const Products = () => {
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h2 className="text-2xl font-semibold text-slate-900 dark:text-slate-100">
+          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-100">
             Product Inventory
           </h2>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             Signed in as {user?.email} ({user?.role})
           </p>
         </div>
@@ -67,7 +67,7 @@ const Products = () => {
               value={searchTerm}
               onChange={(event) => setSearchTerm(event.target.value)}
               placeholder="Search products"
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-slate-400 focus:ring focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-slate-500 dark:focus:ring-slate-800"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none transition focus:border-gray-400 focus:ring focus:ring-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:focus:border-gray-500 dark:focus:ring-gray-800"
             />
           </div>
           <div className="sm:w-48">
@@ -78,7 +78,7 @@ const Products = () => {
               id="category-filter"
               value={category}
               onChange={(event) => setCategory(event.target.value)}
-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-slate-400 focus:ring focus:ring-slate-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:focus:border-slate-500 dark:focus:ring-slate-800"
+              className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 outline-none transition focus:border-gray-400 focus:ring focus:ring-gray-200 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 dark:focus:border-gray-500 dark:focus:ring-gray-800"
             >
               {categories.map((option) => (
                 <option key={option} value={option}>
@@ -93,7 +93,7 @@ const Products = () => {
             className={`whitespace-nowrap rounded-lg border px-3 py-2 text-sm font-medium transition focus:outline-none focus:ring ${
               showLowStockOnly
                 ? 'border-rose-500 bg-rose-500/10 text-rose-600 hover:bg-rose-500/20 dark:border-rose-400 dark:text-rose-300 dark:hover:bg-rose-500/10'
-                : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:border-slate-600 dark:hover:bg-slate-800'
+                : 'border-gray-200 bg-white text-gray-600 hover:border-gray-300 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:border-gray-600 dark:hover:bg-gray-800'
             }`}
           >
             {showLowStockOnly ? 'Showing low stock' : 'Low stock only'}
@@ -125,31 +125,31 @@ const Products = () => {
         />
       </section>
 
-      <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-200 dark:border-gray-800 dark:bg-gray-900">
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-slate-200 dark:divide-slate-800">
-            <thead className="bg-slate-50 dark:bg-slate-800/60">
+          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-800">
+            <thead className="bg-gray-50 dark:bg-gray-800/60">
               <tr>
-                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">
                   Name
                 </th>
-                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">
                   Category
                 </th>
-                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">
                   Stock
                 </th>
-                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-300">
+                <th scope="col" className="px-4 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-300">
                   Price
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+            <tbody className="divide-y divide-gray-100 dark:divide-gray-800">
               {filteredProducts.length === 0 ? (
                 <tr>
                   <td
                     colSpan={4}
-                    className="px-4 py-6 text-center text-sm text-slate-500 dark:text-slate-400"
+                    className="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400"
                   >
                     No products match your search.
                   </td>
@@ -158,24 +158,24 @@ const Products = () => {
                 filteredProducts.map((item) => (
                   <tr
                     key={item.id}
-                    className="transition hover:bg-slate-50 dark:hover:bg-slate-800/60"
+                    className="transition-colors hover:bg-gray-50 dark:hover:bg-gray-800/60"
                   >
-                    <td className="px-4 py-3 text-sm font-medium text-slate-900 dark:text-slate-100">
+                    <td className="px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100">
                       {item.name}
                     </td>
-                    <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">
+                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">
                       {item.category}
                     </td>
                     <td
                       className={`px-4 py-3 text-sm font-semibold ${
                         item.stock < 50
                           ? 'text-rose-500 dark:text-rose-400'
-                          : 'text-slate-700 dark:text-slate-200'
+                          : 'text-gray-700 dark:text-gray-200'
                       }`}
                     >
                       {item.stock}
                     </td>
-                    <td className="px-4 py-3 text-sm text-slate-600 dark:text-slate-300">
+                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-300">
                       {currencyFormatter.format(item.price)}
                     </td>
                   </tr>
