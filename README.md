@@ -61,5 +61,10 @@ slooze-commodities/
 └─ README.md
 ```
 
+## Sample Data & Assumptions
+- Authentication relies on the mocked accounts declared in `src/data/users.js`; replace with real API calls when integrating a backend.
+- Dashboard, products, and chart metrics consume static datasets from `src/data/dashboard.js` and `src/data/products.js` to mirror the referenced Figma visuals.
+- Product creation currently stores data locally for demo purposes; connect `AddProduct.jsx` to a POST endpoint to persist entries.
+
 ## Deployment
 - Vercel: _link to be added after deployment_
